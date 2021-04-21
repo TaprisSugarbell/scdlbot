@@ -1,4 +1,4 @@
-dl - + <links> required! download now
-link - + <links> required! get direct url
-settings - change default mode and spam
-help - show the help message
+dl - + <enlaces> requeridos! descargar ahora
+link - + <links> requeridos! obtener url directa
+settings - cambiar el modo por defecto y el spam
+help - mostrar el mensaje de ayuda

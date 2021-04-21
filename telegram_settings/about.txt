@@ -1,1 +1,1 @@
-Download MP3s of tracks/sets from SoundCloud, Bandcamp, YouTube with tags. Developer: @gpchelkin, Backup: @scdltestbot
+Descarga MP3s de pistas/sets de SoundCloud, Bandcamp, YouTube con etiquetas. Desarrollador: @gpchelkin, Backup: @scdltestbot

@@ -598,7 +598,7 @@ class ScdlBot:
                     ydl_opts['cookiefile'] = self.cookies_file
             queue = Queue()
             cmd_args = (url, ydl_opts, queue,)
-            logger.info("%s starts: %s", cmd_name, url)
+            logger.info("%s inicia: %s", cmd_name, url)
             cmd_proc = Process(target=cmd, args=cmd_args)
             cmd_proc.start()
             try:
@@ -608,16 +608,16 @@ class ScdlBot:
                 if cmd_retcode:
                     raise ProcessExecutionError(cmd_args, cmd_retcode, cmd_stdout, cmd_stderr)
                     # raise cmd_status  #TODO: pass and re-raise original Exception?
-                logger.info("%s succeeded: %s", cmd_name, url)
+                logger.info("%s éxito: %s", cmd_name, url)
                 status = 1
             except Empty:
                 cmd_proc.join(1)
                 if cmd_proc.is_alive():
                     cmd_proc.terminate()
-                logger.info("%s took too much time and dropped: %s", cmd_name, url)
+                logger.info("%s se tomó demasiado tiempo y se dejó caer: %s", cmd_name, url)
                 status = -1
             except ProcessExecutionError:
-                logger.exception("%s failed: %s", cmd_name, url)
+                logger.exception("%s falló: %s", cmd_name, url)
                 status = -2
             gc.collect()
 
@@ -644,7 +644,7 @@ class ScdlBot:
             if not file_list:
                 logger.info("No files in dir: %s", download_dir)
                 bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id,
-                                 text="*Sorry*, I couldn't download any files from provided links",
+                                 text="*Lo siento, no he podido descargar ningún archivo de los enlaces proporcionados.",
                                  parse_mode='Markdown')
             else:
                 for file in sorted(file_list):
@@ -654,29 +654,29 @@ class ScdlBot:
                         file_parts = self.convert_and_split_audio_file(file)
                     except FileNotSupportedError as exc:
                         if not (exc.file_format in ["m3u", "jpg", "jpeg", "png", "finished", "tmp"]):
-                            logger.warning("Unsupported file format: %s", file_name)
+                            logger.warning("Formato de archivo no compatible: %s", file_name)
                             bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id,
-                                             text="*Sorry*, downloaded file `{}` is in format I could not yet convert or send".format(
+                                             text="*Lo siento*, el archivo descargado `{}` está en un formato que aún no he podido convertir o enviar".format(
                                                  file_name),
                                              parse_mode='Markdown')
                     except FileTooLargeError as exc:
-                        logger.info("Large file for convert: %s", file_name)
+                        logger.info("Archivo grande para convertir: %s", file_name)
                         bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id,
-                                         text="*Sorry*, downloaded file `{}` is `{}` MB and it is larger than I could convert (`{} MB`)".format(
+                                         text="*Lo siento, el archivo descargado tiene un tamaño de `{}` MB y es más grande de lo que puedo convertir (`{} MB`)".format(
                                              file_name, exc.file_size // 1000000,
                                                         self.MAX_CONVERT_FILE_SIZE // 1000000),
                                          parse_mode='Markdown')
                     except FileSplittedPartiallyError as exc:
                         file_parts = exc.file_parts
-                        logger.exception("Splitting failed: %s", file_name)
+                        logger.exception("Falló la división: %s", file_name)
                         bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id,
-                                         text="*Sorry*, not enough memory to convert file `{}`..".format(
+                                         text="*Lo siento*, no hay suficiente memoria para convertir el archivo `{}`..".format(
                                              file_name),
                                          parse_mode='Markdown')
                     except FileNotConvertedError as exc:
-                        logger.exception("Splitting failed: %s", file_name)
+                        logger.exception("Falló la división: %s", file_name)
                         bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id,
-                                         text="*Sorry*, not enough memory to convert file `{}`..".format(
+                                         text="*Lo siento*, no hay suficiente memoria para convertir el archivo `{}`..".format(
                                              file_name),
                                          parse_mode='Markdown')
                     try:
@@ -700,7 +700,7 @@ class ScdlBot:
                             #     url = url.replace("http://", "").replace("https://", "")
                             # else:
                             #     url = shorten_url(url)
-                            caption = "@{} _got it from_ [{}]({}){}".format(self.bot_username.replace("_", "\_"),
+                            caption = "@{} _lo obtuve de_ [{}]({}){}".format(self.bot_username.replace("_", "\_"),
                                                                             source, url, addition.replace("_", "\_"))
                             # logger.info(caption)
                         sent_audio_ids = self.send_audio_file_parts(bot, chat_id, file_parts,
@@ -709,10 +709,10 @@ class ScdlBot:
                     except FileSentPartiallyError as exc:
                         sent_audio_ids = exc.sent_audio_ids
                         bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id,
-                                         text="*Sorry*, could not send file `{}` or some of it's parts..".format(
+                                         text="*Lo siento, no se ha podido enviar el archivo `{}` o algunas de sus partes..".format(
                                              file_name),
                                          parse_mode='Markdown')
-                        logger.warning("Sending some parts failed: %s", file_name)
+                        logger.warning("El envío de algunas piezas ha fallado: %s", file_name)
 
         if not self.SERVE_AUDIO:
             shutil.rmtree(download_dir, ignore_errors=True)
@@ -733,7 +733,7 @@ class ScdlBot:
             raise FileTooLargeError(file_size)
         # FIXME unknown_video is for tiktok and also tiktok.mp4
         if file_format not in ["mp3", "unknown_video"] and "tiktok." not in file:
-            logger.info("Converting: %s", file)
+            logger.info("Convirtiendo: %s", file)
             try:
                 file_converted = file.replace(file_ext, ".mp3")
                 ffinput = ffmpeg.input(file)
@@ -750,7 +750,7 @@ class ScdlBot:
         if file_size <= self.MAX_TG_FILE_SIZE:
             file_parts.append(file)
         else:
-            logger.info("Splitting: %s", file)
+            logger.info("Dividiendo: %s", file)
             id3 = None
             try:
                 id3 = ID3(file, translate=False)
@@ -791,7 +791,7 @@ class ScdlBot:
             path = pathlib.Path(file_part)
             file_name = os.path.split(file_part)[-1]
             # file_name = translit(file_name, 'ru', reversed=True)
-            logger.info("Sending: %s", file_name)
+            logger.info("Enviando: %s", file_name)
             bot.send_chat_action(chat_id=chat_id, action=ChatAction.UPLOAD_AUDIO)
             caption_part = None
             if len(file_parts) > 1:
@@ -839,7 +839,7 @@ class ScdlBot:
                                                    caption=caption_full,
                                                    parse_mode='Markdown')
                         sent_audio_ids.append(audio_msg.audio.file_id)
-                        logger.info("Sending succeeded: %s", file_name)
+                        logger.info("El envío ha sido exitoso: %s", file_name)
                         break
                     # FIXME unknown_video is for tiktok
                     elif file_part.endswith('.unknown_video') or "tiktok." in file_part:
@@ -851,11 +851,11 @@ class ScdlBot:
                                                    caption=caption_full,
                                                    parse_mode='Markdown')
                         sent_audio_ids.append(video_msg.video.file_id)
-                        logger.info("Sending succeeded: %s", file_name)
+                        logger.info("El envío ha sido exitoso: %s", file_name)
                         break
                 except TelegramError:
                     if i == 2:
-                        logger.exception("Sending failed because of TelegramError: %s", file_name)
+                        logger.exception("El envío ha fallado debido a TelegramError: %s", file_name)
         if len(sent_audio_ids) != len(file_parts):
             raise FileSentPartiallyError(sent_audio_ids)
         return sent_audio_ids
