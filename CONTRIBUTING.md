@@ -1,95 +1,97 @@
-# How to contribute
+# Cómo contribuir
 
 
-## Dependencies
+## Dependencias
 
-We use [poetry](https://github.com/python-poetry/poetry) to manage the dependencies.
+Utilizamos [poetry](https://github.com/python-poetry/poetry) para gestionar las dependencias.
 
-To install them you would need to run `install` command:
+Para instalarlas necesitarás ejecutar el comando `install`:
 
-```bash
+``bash
 poetry install
 ```
 
-To activate your `virtualenv` run `poetry shell`.
+Para activar tu `virtualenv` ejecuta `poetry shell`.
 
 
-## One magic command
+## Un comando mágico
 
-Run `make test` to run everything we have!
+Ejecuta `make test` para ejecutar todo lo que tenemos
 
 
-## Tests
+## Pruebas
 
-We use `pytest` and `flake8` for quality control.
-We also use [wemake_python_styleguide](https://github.com/wemake-services/wemake-python-styleguide) to enforce the code quality.
+Usamos `pytest` y `flake8` para el control de calidad.
+También usamos [wemake_python_styleguide](https://github.com/wemake-services/wemake-python-styleguide) para reforzar la calidad del código.
 
-To run all tests:
+Para ejecutar todas las pruebas:
 
-```bash
+``bash
 pytest
 ```
 
-To run linting:
+Para ejecutar linting:
 
-```bash
+``bash
 flake8 .
 ```
-Keep in mind: default virtual environment folder excluded by flake8 style checking is `.venv`.
-If you want to customize this parameter, you should do this in `setup.cfg`.
-These steps are mandatory during the CI.
+
+Tenga en cuenta: la carpeta del entorno virtual excluida por defecto por la comprobación de estilo de flake8 es `.venv`.
+Si desea personalizar este parámetro, debe hacerlo en `setup.cfg`.
+Estos pasos son obligatorios durante el CI.
 
 
-## Type checks
+## Comprobaciones de tipo
 
-We use `mypy` to run type checks on our code.
-To use it:
+Usamos `mypy` para ejecutar comprobaciones de tipo en nuestro código.
+Para usarlo:
 
-```bash
+``bash
 mypy scdlbot tests/**/*.py
 ```
 
-This step is mandatory during the CI.
+Este paso es obligatorio durante el CI.
 
 
-## Submitting your code
+## Enviar tu código
 
-We use [trunk based](https://trunkbaseddevelopment.com/)
-development (we also sometimes call it `wemake-git-flow`).
+Utilizamos [trunk based](https://trunkbaseddevelopment.com/)
+de desarrollo (también lo llamamos a veces `wemake-git-flow`).
 
-What the point of this method?
+¿Qué sentido tiene este método?
 
-1. We use protected `master` branch,
-   so the only way to push your code is via pull request
-2. We use issue branches: to implement a new feature or to fix a bug
-   create a new branch named `issue-$TASKNUMBER`
-3. Then create a pull request to `master` branch
-4. We use `git tag`s to make releases, so we can track what has changed
-   since the latest release
+1. Usamos la rama protegida `master`,
+	por lo que la única manera de empujar su código es a través de pull request
+2. Usamos ramas de emisión: para implementar una nueva característica o para corregir un error
+	crea una nueva rama llamada `issue-$TASKNUMBER`.
+3. A continuación, cree una solicitud de extracción a la rama `master`.
+4. Usamos `git tag`s para hacer las publicaciones, así podemos rastrear lo que ha cambiado
+	desde la última versión
 
-So, this way we achieve an easy and scalable development process
-which frees us from merging hell and long-living branches.
+Así, de esta manera logramos un proceso de desarrollo fácil y escalable
+que nos libera del infierno de la fusión y de las ramas de larga duración.
 
-In this method, the latest version of the app is always in the `master` branch.
+En este método, la última versión de la aplicación está siempre en la rama `master`.
 
-### Before submitting
+### Antes de enviar
 
-Before submitting your code please do the following steps:
+Antes de enviar tu código por favor haz los siguientes pasos:
 
-1. Run `pytest` to make sure everything was working before
-2. Add any changes you want
-3. Add tests for the new changes
-4. Edit documentation if you have changed something significant
-5. Update `CHANGELOG.md` with a quick summary of your changes
-6. Run `pytest` again to make sure it is still working
-7. Run `mypy` to ensure that types are correct
-8. Run `flake8` to ensure that style is correct
-9. Run `doc8` to ensure that docs are correct
+1. Ejecuta `pytest` para asegurarte de que todo funcionaba antes
+2. Añade los cambios que quieras
+3. Añade pruebas para los nuevos cambios
+4. Edita la documentación si has cambiado algo significativo
+5. Actualice `CHANGELOG.md` con un resumen rápido de sus cambios
+6. Ejecuta `pytest` de nuevo para asegurarte de que sigue funcionando
+7. Ejecuta `mypy` para asegurarte de que los tipos son correctos
+8. Ejecuta `flake8` para asegurarte de que el estilo es correcto
+9. Ejecutar `doc8` para asegurar que los documentos son correctos
 
 
-## Other help
+## Otra ayuda
 
-You can contribute by spreading a word about this library.
-It would also be a huge contribution to write
-a short article on how you are using this project.
-You can also share your best practices with us.
+Puedes contribuir difundiendo esta biblioteca.
+También sería una gran contribución escribir
+un breve artículo sobre cómo está utilizando este proyecto.
+También puedes compartir tus mejores prácticas con nosotros.
+*** Translated with www.DeepL.com/Translator (free version) ***
