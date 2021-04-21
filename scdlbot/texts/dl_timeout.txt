@@ -1,1 +1,1 @@
-*Sorry*, your download was taking too much time (more than {} minutes), so I needed to stop it. You can get direct links and download for yourself with a `/link <links>` command.
+*Lo siento*, tu descarga estaba tardando demasiado (más de {} minutos), así que tuve que detenerla. Puedes obtener enlaces directos y descargarlos por ti mismo con un comando `/link <links>`.

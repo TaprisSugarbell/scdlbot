@@ -1,28 +1,27 @@
-Hi! I download and send audios from videos/tracks/sets/albums in *MP3 128 kbps* with tags and artwork. Files over 50 MB are split into parts due to Telegram Bot API limit.
+Hola! Descargo y envío audios de vídeos/pistas/sets/álbumes en *MP3 128 kbps* con etiquetas y artwork. Los archivos de más de 50 MB se dividen en partes debido al límite de la API de Telegram Bot.
 
-*Usage:*
-_Send or forward_ a text message containing links and I will:
-• In *Download* mode: download every link I support (or use `/dl <links>`)
-• In *Links* mode: show direct download URLs for every link (or use `/link <links>`)
-• In *Ask* mode: scan for supported links and ask you to choose download or links
-• Use /settings to select working mode for messages *without command*.
-• Use /settings to toggle *Captions*.
-• [Privacy mode](https://core.telegram.org/bots#privacy-mode) is _disabled_, so I scan every group message.
-• Supported links and resources:
-*SoundCloud*: tracks/playlists/pages with private widgets
-*Bandcamp*: tracks/albums/custom links
-*YouTube*: videos/playlists/_not_ lives
-*Yandex.Music*: tracks/albums
-*Mixcloud, Vimeo and* [almost everything from this list](https://ytdl-org.github.io/youtube-dl/supportedsites.html), but no VK music
+*Uso:*
+_Enviar o reenviar_ un mensaje de texto que contenga enlaces y lo haré:
+- En modo *Download*: descargar todos los enlaces que soporte (o usar `/dl <links>`)
+- En el modo *Enlaces*: mostrar las URL de descarga directa de cada enlace (o utilizar `/link <links>`)
+- En el modo *Preguntar*: busca los enlaces compatibles y le pide que elija la descarga o los enlaces
+- Utilice /configuración para seleccionar el modo de trabajo para los mensajes *sin comando*.
+- Utilice /configuración para alternar *Capítulos*.
+- [Modo de privacidad](https://core.telegram.org/bots#privacy-mode) está _desactivado_, por lo que escanea todos los mensajes del grupo.
+- Enlaces y recursos compatibles:
+*SoundCloud*: pistas/listas de reproducción/páginas con widgets privados
+*Bandcamp*: pistas/álbumes/enlaces personalizados
+*YouTube*: vídeos/listas de reproducción/_no_vidas
+*Yandex.Music*: pistas/álbumes
+*Mixcloud, Vimeo y* [casi todo lo de esta lista](https://ytdl-org.github.io/youtube-dl/supportedsites.html), pero no música de VK
 
-*Example message:*
-`Hey, check this out! https://m.soundcloud.com/falling-ethics/jk-flesh-static-demon-fexelvn004 and also https://shitmat.bandcamp.com/track/amen-babylon-2016-mix and youtu.be/Mdzy5RKn434`
+*Mensaje de ejemplo:*
+`¡Oye, mira esto! https://m.soundcloud.com/falling-ethics/jk-flesh-static-demon-fexelvn004 y también https://shitmat.bandcamp.com/track/amen-babylon-2016-mix y youtu.be/Mdzy5RKn434`.
 
-👨🏻‍💻 *Developed by @gpchelkin*:
-[🐝 Channel](https://t.me/ggpchelkin) | [🐝 Homepage](https://pchelk.in)
-[🌟 Star me on GitHub!](https://github.com/gpchelkin/scdlbot) | [⚠️ Report an issue](https://github.com/gpchelkin/scdlbot/issues)
-💵 Support development:
+👨🏻💻 *Desarrollado por @gpchelkin*:
+[🐝 Canal](https://t.me/ggpchelkin) | [🐝 Página de inicio](https://pchelk.in)
+💵 Apoyar el desarrollo:
 [PayPal](http://paypal.me/ggpchelkin/200) | [Ko-fi](https://ko-fi.com/gpchelkin) | [Tinkoff](https://www.tinkoff.ru/sl/Acd7Jamf4YM) | [Yandex.Money](http://money.yandex.ru/to/41001421333857/200)
 
-👩🏻‍🎨 Logo by `@lowonbudget` | [🖼️ Behance](https://www.behance.net/lowonbudget)
-🎶 Inspired by `@electrocircle` | [⚡⚫ Channel](https://t.me/Eklight)
+👩🏻🎨 Logotipo de `@lowonbudget` | [🖼️ Behance](https://www.behance.net/lowonbudget)
+🎶 Inspirado por `@electrocircle` | [⚡⚫ Channel](https://t.me/Eklight)

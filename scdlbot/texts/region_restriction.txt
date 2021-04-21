@@ -1,1 +1,1 @@
-*Sorry*, the uploader has not made this link available in my country. You can get direct links and download for yourself with a `/link <links>` command.
+*Lo siento*, el cargador no ha puesto este enlace a disposición en mi país. Puedes obtener enlaces directos y descargarlos por ti mismo con un comando `/link <links>`.

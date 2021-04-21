@@ -1,3 +1,3 @@
-Select working mode for messages *without command*.
-Sane defaults are *Download* for *PM* and *Ask* for groups.
-Toggle *Captions* off: send audios *without source captions* and *not as replies*.
+Seleccione el modo de trabajo para los mensajes *sin comando*.
+Los valores por defecto son *Descargar* para *PM* y *Preguntar* para grupos.
+Desactivar *Captions*: enviar audios *sin subtítulos de origen* y *no como respuestas*.

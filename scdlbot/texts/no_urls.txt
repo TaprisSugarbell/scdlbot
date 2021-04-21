@@ -1,4 +1,4 @@
-*Sorry*, no supported links found in your request.
-Or, if it was YouTube link, YouTube just didn't let me download from it too repeatedly..
-Just wait and try again later, or try my test version bot: @scdltestbot or some another bot like @utubebot.
-For more information see /help
+*Lo siento*, no se han encontrado enlaces compatibles con su solicitud.
+O, si era el enlace de YouTube, YouTube no me dejó descargar de él también repetidamente...
+Espera y vuelve a intentarlo más tarde, o prueba con mi bot de versión de prueba: @scdltestbot o algún otro bot como @utubebot.
+Para más información ver /help
